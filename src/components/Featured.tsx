@@ -1,4 +1,8 @@
-export default function Featured() {
+interface FeaturedProps {
+  onBook?: () => void;
+}
+
+export default function Featured({ onBook }: FeaturedProps) {
   return (
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center min-h-screen px-6 py-12 lg:py-0 bg-white">
       <div className="flex-1 h-[400px] lg:h-[800px] mb-8 lg:mb-0 lg:order-2">
@@ -14,12 +18,12 @@ export default function Featured() {
           Классический, спортивный, антицеллюлитный и расслабляющий массаж — подберём технику под ваше тело и цель.
           Опытные мастера, атмосфера покоя и результат с первого сеанса.
         </p>
-        <a
-          href="#contact"
+        <button
+          onClick={onBook}
           className="inline-block bg-black text-white border border-black px-4 py-2 text-sm transition-all duration-300 hover:bg-white hover:text-black cursor-pointer w-fit uppercase tracking-wide"
         >
           Записаться
-        </a>
+        </button>
       </div>
     </div>
   );

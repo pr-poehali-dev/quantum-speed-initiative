@@ -1,7 +1,11 @@
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
 
-export default function Hero() {
+interface HeroProps {
+  onBook?: () => void;
+}
+
+export default function Hero({ onBook }: HeroProps) {
   const container = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: container,
@@ -32,12 +36,12 @@ export default function Hero() {
         <p className="text-lg md:text-xl max-w-2xl mx-auto px-6 opacity-90">
           Профессиональный массаж для восстановления тела и гармонии души
         </p>
-        <a
-          href="#contact"
-          className="inline-block mt-8 bg-white text-black px-8 py-3 text-sm uppercase tracking-wide hover:bg-transparent hover:text-white border border-white transition-all duration-300"
+        <button
+          onClick={onBook}
+          className="inline-block mt-8 bg-white text-black px-8 py-3 text-sm uppercase tracking-wide hover:bg-transparent hover:text-white border border-white transition-all duration-300 cursor-pointer"
         >
           Записаться на сеанс
-        </a>
+        </button>
       </div>
     </div>
   );
